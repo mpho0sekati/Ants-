@@ -34,6 +34,9 @@ class AntsTkApp:
         self.info_label = ttk.Label(root, text="Left click to add food, right click to spawn an enemy.")
         self.info_label.grid(row=2, column=0, columnspan=4, sticky='ew')
 
+        self.stats_label = ttk.Label(root, text="HomeHP: 0 | Food: 0 | Enemies: 0 | Collectors: 0 | Protectors: 0")
+        self.stats_label.grid(row=3, column=0, columnspan=4, sticky='ew')
+
         self.rects = [[None for _ in range(self.sim.width)] for _ in range(self.sim.height)]
         self.draw_grid()
         self.update_canvas()
@@ -116,6 +119,11 @@ class AntsTkApp:
             self.canvas.create_rectangle(x1+8, y1+8, x2-8, y2-8, fill='black', tags='enemy')
 
         self.root.title(f"Ant Simulation - Step {self.sim.steps}  HomeHP={self.sim.home_health}")
+        collectors = sum(1 for ant in self.sim.ants if ant.role != 'protector')
+        protectors = sum(1 for ant in self.sim.ants if ant.role == 'protector')
+        self.stats_label.config(
+            text=f"HomeHP: {self.sim.home_health} | Food: {self.sim.food_delivered} | Enemies: {len(self.sim.enemies)} | Collectors: {collectors} | Protectors: {protectors}"
+        )
 
     def on_click(self, event):
         x = event.x // CELL_SIZE
