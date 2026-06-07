@@ -1,0 +1,24 @@
+{
+  "heuristics": {
+    "collector_exploration_rate": 0.18,
+    "protector_detection_range": 6,
+    "enemy_random_move_prob": 0.2,
+    "protector_attack_power": 2
+  },
+  "episodes": [
+    {
+      "home_health": 10,
+      "food_collected": 3,
+      "enemies_defeated": 1,
+      "steps": 50,
+      "success": true
+    },
+    {
+      "home_health": 8,
+      "food_collected": 4,
+      "enemies_defeated": 2,
+      "steps": 50,
+      "success": true
+    }
+  ]
+}
