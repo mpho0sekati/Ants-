@@ -1,0 +1,6 @@
+crewai>=0.80.0
+crewai-tools>=0.20.0
+langchain-groq>=0.2.0
+python-dotenv>=1.0.0
+sentence-transformers>=3.0.0
+numpy>=1.26.0
